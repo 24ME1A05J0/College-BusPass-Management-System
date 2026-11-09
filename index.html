@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Bus Pass Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">🚌</span><div><b>CampusRide</b><small>BUS PASS MANAGEMENT</small></div></div>
+    <div class="top-right"><span class="live-dot"></span> System ready</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">COLLEGE TRANSPORT PORTAL</p>
+        <h1>Your daily journey,<br><span>made simpler.</span></h1>
+        <p>Register students, issue bus passes and check pass validity in one place.</p>
+        <a class="hero-btn" href="#registration">Manage bus passes <span>→</span></a>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1100&q=85" alt="Passenger bus">
+        <div class="photo-label">COLLEGE TRANSPORT</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card"><span class="stat-icon purple">👨‍🎓</span><div><small>Registered students</small><strong id="studentCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon blue">🎫</span><div><small>Total bus passes</small><strong id="passCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon green">✓</span><div><small>Active passes</small><strong id="activeCount">0</strong></div></article>
+    </section>
+
+    <section class="content-grid" id="registration">
+      <div class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">NEW RECORD</p><h2>Student registration</h2></div><span class="step">01</span></div>
+        <form id="studentForm">
+          <label>Student ID<input name="id" type="number" placeholder="e.g. 1025" required></label>
+          <label>Student name<input name="name" placeholder="Enter full name" required></label>
+          <label>Department<input name="department" placeholder="e.g. CSE" required></label>
+          <button class="primary-btn" type="submit">Register student <span>→</span></button>
+        </form>
+        <div id="studentMessage" class="message"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">CREATE PASS</p><h2>Issue a bus pass</h2></div><span class="step">02</span></div>
+        <form id="passForm">
+          <label>Student ID<input name="studentId" type="number" placeholder="Registered student ID" required></label>
+          <div class="two-col">
+            <label>Bus number<input name="busNumber" placeholder="e.g. AP 37 X 1234" required></label>
+            <label>Route<input name="route" placeholder="e.g. Eluru - College" required></label>
+          </div>
+          <div class="two-col">
+            <label>Start date<input name="startDate" type="date" required></label>
+            <label>End date<input name="endDate" type="date" required></label>
+          </div>
+          <button class="primary-btn" type="submit">Generate bus pass <span>→</span></button>
+        </form>
+        <div id="passMessage" class="message"></div>
+      </div>
+    </section>
+
+    <section class="panel records">
+      <div class="records-heading">
+        <div><p class="eyebrow">TRANSPORT DATABASE</p><h2>Bus pass records</h2></div>
+        <div class="search-box"><input id="searchInput" placeholder="Search by student ID or name"><button id="searchButton">Search</button><button class="refresh" id="refreshButton" title="Refresh">↻</button></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>PASS ID</th><th>STUDENT</th><th>BUS NO.</th><th>ROUTE</th><th>VALID FROM</th><th>VALID UNTIL</th><th>STATUS</th></tr></thead>
+          <tbody id="passTable"><tr><td colspan="7" class="empty">No bus passes yet. Register a student and issue a pass.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <footer>CampusRide <span>•</span> College Bus Pass Management System</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
